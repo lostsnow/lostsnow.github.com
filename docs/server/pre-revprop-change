@@ -1,0 +1,9 @@
+#!/bin/sh
+
+REPOS="$1"
+REV="$2"
+USER="$3"
+PROPNAME="$4"
+ACTION="$5"
+
+exit 0

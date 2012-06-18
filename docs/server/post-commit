@@ -1,0 +1,11 @@
+#!/bin/sh
+
+REPOS="$1"
+REV="$2"
+
+username=xx
+password=oo
+slave=192.168.0.22
+
+svnsync sync --non-interactive svn://${slave}/adcode --username ${username} --password ${password}
+
