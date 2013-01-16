@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../static/code_style/wombat.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>Untitled</h1>
+    <p>#!/bin/sh</p>
+
+<p>REPOS="$1"
+REV="$2"
+USER="$3"
+PROPNAME="$4"
+ACTION="$5"</p>
+
+<p>exit 0</p>
+
+</body>
+</html>

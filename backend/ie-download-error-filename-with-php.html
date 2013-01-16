@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../static/code_style/wombat.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>Untitled</h1>
+    <h1 id="ie-download-filename-in-php">IE download filename in PHP</h1>
+
+<blockquote>
+  <p>IE中通过PHP下载文件得到错误的文件名</p>
+</blockquote>
+
+<h2 id="question">Question</h2>
+
+<p>从一个php脚本中下载文件, 在ie下的不到正确的文件名, 返回的总是php脚本的名称, firefox和chrome无此症状</p>
+
+<p>代码如下(download.php):</p>
+
+<pre><code>&lt;?php
+$filename = 'example.zip';
+header('Content-Type: application/octet-stream;');
+header('Content-Disposition: attachment;filename=' . $filename);
+echo file_get_contents('./example.zip');
+</code></pre>
+
+<p>在ie中只能得到download.php的文件名称</p>
+
+<h2 id="answer">Answer</h2>
+
+<p>这是一个ie的bug, 当收到一个<code>Cache-Control: no-cache的header</code> 的时候, ie会忽略filename的头</p>
+
+<p>加上下面两条就可以解决了</p>
+
+<pre><code>&lt;?php
+header("Cache-Control: maxage=1");
+header("Pragma: public");
+</code></pre>
+
+</body>
+</html>

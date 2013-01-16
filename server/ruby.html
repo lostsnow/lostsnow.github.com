@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../static/code_style/wombat.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>Untitled</h1>
+    <h1 id="ruby-installation">Ruby Installation</h1>
+
+<h2 id="curl-ca">curl CA</h2>
+
+<p>./mk-ca-bundle.pl
+curl-config --ca</p>
+
+<h2 id="ruby-source">ruby source</h2>
+
+<pre><code>gem sources --remove http://rubygems.org/
+gem sources -a http://ruby.taobao.org/
+gem sources -l
+</code></pre>
+
+<h2 id="ruby-with-rvm">ruby with rvm</h2>
+
+<pre><code>rvm install ruby-1.8.7-p357
+rvm ruby-1.8.7-p357
+rvm gemset create redmine1.3
+rvm ruby-1.8.7-p357@redmine1.3
+
+gem install bundler
+
+gem install passenger
+gem install bluefeather
+</code></pre>
+
+<h2 id="redmine">redmine</h2>
+
+<p>./Gemfile</p>
+
+<pre><code>source "http://ruby.taobao.org/"
+gem "rails", "2.3.14"
+gem "rake", "0.8.3"
+gem "rack", "1.1.0"
+gem "i18n", "0.4.2"
+gem "rubytree", "0.5.2", :require =&gt; "tree"
+gem "RedCloth", "~&gt;4.2.3", :require =&gt; "redcloth" # for CodeRay
+gem "mysql"
+gem "coderay", "~&gt;0.9.7"
+gem "shoulda", "~&gt;2.10.3"
+gem "edavis10-object_daddy", "&gt;=0"
+gem "mocha", "&gt;=0"
+
+bundle install
+</code></pre>
+
+<h3 id="config">config</h3>
+
+<p>./config/environment.rb</p>
+
+<pre><code>ENV['RAILS_ENV'] ||= 'production'
+
+config.active_record.table_name_prefix = "redmine_"
+</code></pre>
+
+<p>./config/database.yml</p>
+
+<h3 id="init">init</h3>
+
+<p>RAILS<em>ENV=production bundle exec rake generate</em>session<em>store
+RAILS</em>ENV=production bundle exec rake db:migrate
+RAILS<em>ENV=production bundle exec rake redmine:load</em>default_data</p>
+
+<h3 id="deploy">deploy</h3>
+
+<pre><code>#mv dispatch.cgi.example dispatch.cgi
+#mv dispatch.fcgi.example dispatch.fcgi
+#mv dispatch.rb.example dispatch.rb
+
+ruby /path/to/redmine/script/server webrick -e production -b 127.0.0.1 -d
+</code></pre>
+
+</body>
+</html>

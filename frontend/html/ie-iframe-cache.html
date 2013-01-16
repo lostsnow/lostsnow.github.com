@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../../static/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../../static/code_style/wombat.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>Untitled</h1>
+    <h1 id="ie-iframe-cache">IE iframe cache</h1>
+
+<p><div class="toc"><ul>
+  <li><a href="#ie-iframe-cache">IE iframe cache</a>
+  <ul>
+    <li><a href="#question">Question</a></li>
+    <li><a href="#answer">Answer</a></li>
+  </ul></li>
+</ul>
+</div></p>
+
+<blockquote>
+  <p>如何解决 IE Iframe 框架的缓存问题</p>
+</blockquote>
+
+<h2 id="question">Question</h2>
+
+<p>我有一个主页面包含iframe框架, 每次刷新iframe地址都会改变, 但是在ie中, 始终只显示同一个iframe的内容, 该如何清除缓存?</p>
+
+<h2 id="answer">Answer</h2>
+
+<p>用js动态的设置iframe的地址就可以了</p>
+
+<pre><code>&lt;iframe name="iframename"&gt;&lt;/iframe&gt;
+
+&lt;script type="text/javascript"&gt;
+(document.frames || window.frames)['iframename'].location.href = "http://images.sohu.com/bill/s2011/jiaren/lverya/0728/b/b.html";
+&lt;/script&gt;
+</code></pre>
+
+<blockquote>
+  <p>注: <code>.&lt;iframe name="iframename"&gt;&lt;/iframe&gt;</code> 不能增加src属性</p>
+</blockquote>
+
+</body>
+</html>

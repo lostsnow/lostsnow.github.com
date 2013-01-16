@@ -1,0 +1,17 @@
+#!/bin/sh
+
+export LANG=zh_CN.UTF-8
+
+REPOS="$1"
+TXN="$2"
+
+# Make sure that the log message contains some text.
+SVNLOOK=/usr/local/subversion/bin/svnlook
+LOGMSG=`$SVNLOOK log -t "$TXN" "$REPOS" | grep "[^[:space:]+]" | grep -o "[^ ]\+\( \+[^ ]\+\)*" | wc -c`
+if [ "$LOGMSG" -lt 5 ];
+then
+    echo -e "\nEmpty log message not allowed (minsize=5). Commit aborted!" 1>&2
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../../static/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="../../static/code_style/wombat.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <h1>Untitled</h1>
+    <h1 id="css-word-wrap">CSS word wrap</h1>
+
+<blockquote>
+  <p>CSS 的强制换行</p>
+</blockquote>
+
+<h2 id="question">Question</h2>
+
+<p>如何能够让各个浏览器兼容换行(包含连续英文情形下)?</p>
+
+<h2 id="answer">Answer</h2>
+
+<div class="codehilite"><pre><code><span class="nt">table-layout</span><span class="nd">:fixed</span><span class="o">;</span>     <span class="o">//</span> <span class="nt">table</span>
+<span class="nt">word-break</span><span class="nd">:break-all</span><span class="o">;</span>
+<span class="nt">word-wrap</span><span class="nd">:break-word</span><span class="o">;</span>
+</code></pre></div>
+
+<p>其中 <code>table-layout</code> 是在使用 table 的时候设置给 table 的 CSS 属性</p>
+
+</body>
+</html>

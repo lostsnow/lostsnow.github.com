@@ -1,0 +1,64 @@
+html{
+	width:100%;
+}
+body{
+	margin-left:7%;
+	margin-right:7%;
+	line-height:19px;
+	font-size:14px;
+	font-family: "Inconsolata-g",Consolas,Liberation Mono, "Courier New", Courier,monospace;
+}
+h1{
+	text-align:center;
+}
+ul{
+	list-style:none;
+}
+.toc{
+	max-height:400px;
+	font-size:14px;
+	line-height:19px;
+	overflow:scroll;
+	z-index:11;
+	position:fixed;
+	top:40px;
+	right:3%;
+	border:solid 1px #999;
+	background-color:#fff;
+}
+table{ border-collapse:collapse}
+td{border:solid 1px #000; padding 4px 5px;}
+
+pre {
+	background: url('./code_style/noise.png?1350420938') top left;
+	font-family: "Inconsolata-g",Consolas,Liberation Mono,"Courier New", Courier,monospace !important;
+	-webkit-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-ms-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	border-radius: 0.4em;
+	border: 1px solid #CCCCCC;
+	line-height: 1.5em;
+	font-size: 14px;
+	margin-bottom: 2.1em;
+	padding: .8em 1em;
+	overflow: auto;
+}
+code{
+	border: 1px solid #CCCCCC;
+	font-family: "Inconsolata-g",Consolas,Liberation Mono,"Courier New", Courier,monospace;
+	font-size:12px;
+	padding: 1px 5px;
+}
+pre code{
+	font-size:14px;
+	border:none;
+	padding:0;
+}
+.codehilite {
+	-webkit-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-ms-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	border-radius: 0.4em;
+}
